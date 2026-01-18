@@ -1,0 +1,61 @@
+# Configuration for Chat Control Tool
+# Choose 'youtube' or 'twitch'
+platform: youtube
+
+# YouTube configuration
+youtube:
+  video_id: ""  # Enter the YouTube live video ID here
+
+# Twitch configuration
+twitch:
+  channel: ""  # Enter the Twitch channel name here
+  token: ""    # OAuth token for Twitch bot (optional, for sending messages)
+  client_id: "" # Twitch application client ID (optional)
+
+# Command prefix (default: !)
+command_prefix: "!"
+
+# Allowed users (leave empty to allow all users)
+allowed_users: []
+
+# Security settings
+security:
+  require_moderator: false  # Only allow moderators to use commands
+  enable_cooldown: true     # Enable cooldown between commands
+  cooldown_seconds: 2       # Seconds between commands
+
+# Command mappings
+commands:
+  # Program launching
+  open_notepad:
+    action: "open"
+    program: "notepad.exe"
+    
+  open_calculator:
+    action: "open"
+    program: "calc.exe"
+    
+  open_browser:
+    action: "open"
+    program: "C:\\Program Files\\Google\\Chrome\\chrome.exe"
+    
+  # Mouse controls
+  mouse_move:
+    action: "mouse_move"
+    # Usage: !mouse_move x y
+    
+  mouse_click:
+    action: "mouse_click"
+    # Usage: !mouse_click [left|right|middle]
+    
+  mouse_doubleclick:
+    action: "mouse_doubleclick"
+    
+  # Keyboard controls
+  press_key:
+    action: "key_press"
+    # Usage: !press_key a or !press_key ctrl+c
+    
+  type_text:
+    action: "type"
+    # Usage: !type_text hello world
