@@ -1,0 +1,128 @@
+# Example Configuration for Chat Control Tool
+# Copy this to config.yaml and customize for your setup
+
+# Platform: Choose 'youtube' or 'twitch'
+platform: youtube
+
+# YouTube Configuration
+youtube:
+  video_id: ""  # Get this from your YouTube livestream URL
+  # Example: If URL is youtube.com/watch?v=dQw4w9WgXcQ
+  # Then video_id is: dQw4w9WgXcQ
+
+# Twitch Configuration
+twitch:
+  channel: ""  # Your Twitch channel name (without the @)
+  token: ""    # Optional: OAuth token for bot features
+  # Get token from: https://twitchapps.com/tmi/
+
+# Command Settings
+command_prefix: "!"  # Commands will start with this character
+
+# User Permissions
+# Leave empty to allow all users
+allowed_users: []
+# Example with specific users:
+# allowed_users:
+#   - "friend1"
+#   - "friend2"
+#   - "trusted_viewer"
+
+# Security Settings
+security:
+  require_moderator: false  # Set to true to only allow moderators
+  enable_cooldown: true     # Prevent command spam
+  cooldown_seconds: 2       # Seconds between commands
+
+# Command Definitions
+# Customize these commands or add your own!
+commands:
+  
+  # ===== PROGRAM LAUNCHERS =====
+  
+  notepad:
+    action: "open"
+    program: "notepad.exe"
+    
+  calc:
+    action: "open"
+    program: "calc.exe"
+    
+  paint:
+    action: "open"
+    program: "mspaint.exe"
+    
+  browser:
+    action: "open"
+    # Adjust path to your browser
+    program: "C:\\Program Files\\Google\\Chrome\\chrome.exe"
+    
+  # ===== MOUSE CONTROLS =====
+  
+  mouse:
+    action: "mouse_move"
+    # Usage in chat: !mouse 100 200
+    # Moves mouse to coordinates (100, 200)
+    
+  click:
+    action: "mouse_click"
+    # Usage in chat: !click left
+    # Options: left, right, middle
+    
+  doubleclick:
+    action: "mouse_doubleclick"
+    # Usage in chat: !doubleclick
+    
+  # ===== KEYBOARD CONTROLS =====
+  
+  key:
+    action: "key_press"
+    # Usage in chat: !key a (presses 'a')
+    # Usage in chat: !key ctrl+c (presses Ctrl+C)
+    # Usage in chat: !key alt+tab (switches windows)
+    
+  type:
+    action: "type"
+    # Usage in chat: !type Hello World
+    # Types the text that follows
+    
+  # ===== FUN EXAMPLES =====
+  
+  # Spam space (for games)
+  jump:
+    action: "key_press"
+    # In chat: !key space
+    
+  # Screenshot
+  screenshot:
+    action: "key_press"
+    # In chat: !key win+printscreen
+    
+  # Open Start Menu
+  start:
+    action: "key_press"
+    # In chat: !key win
+
+# ===== TIPS =====
+# 
+# 1. Add your own programs:
+#    my_program:
+#      action: "open"
+#      program: "C:\\Path\\To\\Program.exe"
+#
+# 2. Common key combinations:
+#    - ctrl+c, ctrl+v (copy/paste)
+#    - alt+tab (switch windows)
+#    - win (start menu)
+#    - ctrl+alt+delete
+#
+# 3. Security recommendations:
+#    - Enable require_moderator for public streams
+#    - Use allowed_users for private sessions
+#    - Keep cooldown enabled
+#    - Test commands before going live
+#
+# 4. Mouse coordinates:
+#    - (0, 0) is top-left corner
+#    - Find coordinates by moving mouse and checking position
+#    - Use Windows Magnifier to help find exact positions
