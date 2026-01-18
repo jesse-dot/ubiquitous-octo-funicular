@@ -4,7 +4,6 @@ Listens to Twitch channel chat and processes commands.
 """
 from twitchio.ext import commands
 from typing import Callable, Optional
-import asyncio
 
 
 class TwitchChatBot(commands.Bot):

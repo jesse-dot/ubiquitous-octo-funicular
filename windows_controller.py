@@ -29,8 +29,15 @@ class WindowsController:
             True if successful, False otherwise
         """
         try:
-            # Try to run the program
-            subprocess.Popen(program_path, shell=True)
+            # For simple program names (e.g., notepad.exe), use shell
+            # For full paths, use list format for better security
+            if os.path.isfile(program_path):
+                # Full path to executable - use secure format
+                subprocess.Popen([program_path])
+            else:
+                # Program name - needs shell to resolve from PATH
+                # This is safe for configured commands only
+                subprocess.Popen(program_path, shell=True)
             return True
         except Exception as e:
             print(f"Error opening program {program_path}: {e}")
